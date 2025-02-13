@@ -1,13 +1,14 @@
-import './App.css'
+import './Login.css'
 import React from 'react';
-import { account } from './appwrite';
+import { account, ID } from './appwrite';
 import GoogleButton from 'react-google-button'
 import { useState } from 'react';
 import background from './assets/Purple.png';
 
 
-function App() {
-  const [name, setName] = useState(""); //initialized the state of inputs for sign up
+function Login() {
+  
+  //initialized the state of inputs for sign up
   const [email, setUser] = useState("");
   const [password, setPassword] = useState("");
 
@@ -19,7 +20,7 @@ function App() {
   }
 
   async function handleCreateAccount() { // Create an account using username and password
-    const promise = account.create(name, email, password);
+    const promise = account.create(ID.unique(), email, password);
     promise.then(function (response) {
       console.log(response); // Success
   }, function (error) {
@@ -64,12 +65,11 @@ function App() {
       <div className='container'>
         <div className='signUp' style={{display: 'none'}}>   {/* Sign up hidden by default*/}
           <h1>Sign Up</h1>
-          <input type="text" placeholder="Full Name" onChange={e => setName(e.target.value)}/>   {/* Inputs for signup*/}
-          <input type="email" placeholder="Email" onChange={e => setUser(e.target.value)}/>           
+          <input type="email" placeholder="Email" onChange={e => setUser(e.target.value)}/>       {/* Inputs for signup*/}          
           <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
           <button onClick={handleCreateAccount}>Create Account</button>   {/* Button to create account*/}
 
-          <h3>Or sign in with Google</h3>
+          <h3>Or Sign-in With Google:</h3>
           <GoogleButton onClick={handleLogin}/>  {/* Button to sign in with Google*/}
           <h3>Or Sign-In Using</h3>
           <button className='singin-btn' onClick={toggle}>Sign-In</button>  {/* Button to toggle to sign in screen*/}
@@ -81,14 +81,14 @@ function App() {
           <input type="password" placeholder="Type your password" onChange={e => setLoginPassword(e.target.value)}/> 
           <button onClick={handleExistingAccount}>Login</button>  {/* Button to login*/}
 
-          <h3>Or sign in with Google</h3>
+          <h3>Or Sign-In With Google:</h3>
           <GoogleButton onClick={handleLogin}/> {/* Button to sign in with Google*/}
 
-          <h3>Or Sign-Up Using</h3>
+          <h3>Or Sign-Up Using:</h3>
           <button className=' signup-btn' onClick={toggle}>Sign Up</button> {/* Button to toggle to sign up screen*/}
         </div>
       </div>
     </div>
   );
 }
-export default App
+export default Login
