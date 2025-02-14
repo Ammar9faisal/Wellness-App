@@ -16,12 +16,21 @@
     height: 100vh;
     position: absolute;
     display: flex;
+    flex-direction: column; /* Add this line to stack elements vertically */
     justify-content: center;
     align-items: center;
     top: 0;
     right: 0;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.welcome-heading {
+    font-size: 2em; /* Increase the font size */
+    background: linear-gradient(to right, #7F58BB, #C343B4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px; /* Add some space below the heading */
 }
 
 input {
