@@ -88,33 +88,33 @@ function Login() {
 
   return (
     <div className="loginPage">
-      <img src={background} alt='background' className='background'/> {/* Background image*/}
-      <div className='container'>
+      <img src={background} alt='background' className='login-background'/> {/* Background image*/}
+      <div className='login-container'>
         <div className='signUp' style={{display: 'none'}}>   {/* Sign up hidden by default*/}
           <h1>Sign Up</h1>
-          <input type="email" placeholder="Email" onChange={e => setUser(e.target.value)}/>       {/* Inputs for signup*/}  
+          <input className="email" type="email" placeholder="Email" onChange={e => setUser(e.target.value)}/>       {/* Inputs for signup*/}  
           {email && !validateEmail(email) && <p style={{color: 'red'}}>Invalid email format</p>} {/* Error message for invalid email format*/}
-          <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
-          <button onClick={handleCreateAccount}>Create Account</button>   {/* Button to create account*/}
+          <input className="password" type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
+          <button className="button" onClick={handleCreateAccount}>Create Account</button>   {/* Button to create account*/}
 
           <h3>Or Sign-in With Google:</h3>
           <GoogleButton onClick={handleLogin}/>  {/* Button to sign in with Google*/}
           <h3>Or Sign-In Using</h3>
-          <button className='singin-btn' onClick={toggle}>Sign-In</button>  {/* Button to toggle to sign in screen*/}
+          <button className='signin-btn' onClick={toggle}>Sign-In</button>  {/* Button to toggle to sign in screen*/}
         </div>
       
         <div className='signIn'>
           <h1>Login</h1>
-          <input type="email" placeholder="Type your email" onChange={e => setLoginUser(e.target.value)}/> {/* Inputs for sign in*/}
+          <input className="email" type="email" placeholder="Type your email" onChange={e => setLoginUser(e.target.value)}/> {/* Inputs for sign in*/}
           {loginEmail && !validateEmail(loginEmail) && <p style={{color: 'red'}}>Invalid email format</p>} {/* Error message for invalid email format*/}
-          <input type="password" placeholder="Type your password" onChange={e => setLoginPassword(e.target.value)}/> 
-          <button onClick={handleExistingAccount}>Login</button>  {/* Button to login*/}
+          <input className="password" type="password" placeholder="Type your password" onChange={e => setLoginPassword(e.target.value)}/> 
+          <button className="button" onClick={handleExistingAccount}>Login</button>  {/* Button to login*/}
 
           <h3>Or Sign-In With Google:</h3>
           <GoogleButton onClick={handleLogin}/> {/* Button to sign in with Google*/}
 
           <h3>Or Sign-Up Using:</h3>
-          <button className=' signup-btn' onClick={toggle}>Sign Up</button> {/* Button to toggle to sign up screen*/}
+          <button className='signup-btn' onClick={toggle}>Sign Up</button> {/* Button to toggle to sign up screen*/}
         </div>
       </div>
     </div>

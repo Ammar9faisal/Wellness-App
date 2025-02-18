@@ -6,11 +6,12 @@
     width: 25em;
 }
 
-.background {
+.login-background {
   height: 100vh;
   width: 100vw;
 }
-.container {
+
+.login-container {
     background-color: white;
     width: 50vw;
     height: 100vh;
@@ -24,7 +25,7 @@
     padding-right: 10px;
 }
 
-input {
+.email, .password {
     background-color: white;
     border: none;
     font-size: large ;
@@ -37,14 +38,14 @@ input {
     width: 100%;
 }
 
-input:focus {
+.email:focus, .password:focus {
     padding-bottom: 5px;
     outline: none;
     border-bottom: 3px solid;
     border-image: linear-gradient(to right, #7F58BB, #C343B4) 1;
 }
 
-button {
+.button, .signin-btn, .signup-btn{
     background: linear-gradient(to right, #7F58BB, #C343B4);
     color: white;
     display: inline-block;
