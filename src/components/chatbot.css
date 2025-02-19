@@ -1,0 +1,102 @@
+.chatbot-container {   
+    background-color: white;
+    position: fixed;
+    bottom: 20px;  
+    right: 20px;
+    width: 35vw;
+    height: 50vh;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.chatbot-header {  /* styling for the header */
+    background: linear-gradient(to right, #7F58BB, #C343B4);
+    color: white;
+    padding: 5px;
+    font-size: medium;
+    font-weight: bold;
+    height: 3vh;
+}
+
+#aiName {
+    width: fit-content;
+    margin: 0px;
+    color: white;
+    font-size: medium;
+    
+}
+
+#openBtn {
+    background: linear-gradient(to right, #7F58BB, #C343B4);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+}
+
+#closeBtn {
+    background-color: transparent;
+    color: white;
+    border: 0px;
+    padding: 5px;
+    margin-left: auto;
+}
+
+#closeBtn:hover {
+    background-color: #a2a3a572;
+}
+
+.hidden {
+    display: none;   /* used to hide the chatbox */
+    visibility: hidden;   
+}
+
+.message.user{   /* styling for user message */
+    color: white;
+    background-color: #2a41ee;
+    width: fit-content;
+    max-width: 35vh;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-bottom: 15px;
+}
+
+.message.bot{  /* styling for AI response */
+    color: white;
+    background-color: #75767d;
+    width: fit-content;
+    max-width: 30vh;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.chatbot-messages {  /* styling for the messages window */
+    height: 35vh;
+    overflow-y: scroll;
+    margin: 5px;
+    width: 33vw;
+}
+
+.chatbot-input {  /* styling for text input */
+    height: 4vh;
+    width: 35vw;
+    padding: 0px 5px;
+    background-color: white;
+    font-size: medium;
+} 
+
+.sendButton {  /* styling for the send button */
+    height: 6vh;
+    background: linear-gradient(to right, #7F58BB, #C343B4);
+    color: white;
+    display: inline-block;
+    border-radius: 1px;
+    display: block;
+    width: 100%;
+    margin: 0;
+}
