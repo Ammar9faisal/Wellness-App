@@ -2,7 +2,7 @@ import './Login.css'
 import {React, useState} from 'react';
 import { account, ID } from '../appwrite';
 import GoogleButton from 'react-google-button'
-import background from '/Users/ammarfaisal/Desktop/Wellness-App/src/assets/Purple.png';
+import background from '../assets/Purple.png';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
