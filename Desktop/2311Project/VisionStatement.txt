@@ -1,14 +1,36 @@
-The Wellness App (WA) is a mental health and wellness platform designed by students, for students. Our goal is to create a tool that seamlessly fits into the busy lives of students, allowing them to improve their mental health, build better habits, and achieve personal wellness goals with minimal effort. Recognizing that students often have limited time between classes, we designed the app to be easily accessible on laptops, iPads, and other devices as a web application, ensuring convenience and broad accessibility.
+Our wellness app, Eunoia Hub, is an application for well-being and mental health created for and by students.
+Our objective is to provide a tool that easily integrates within students' hectic schedules so they can attain
+their own personal wellness objectives, develop healthier behaviours, and enhance their mental health with little effort.
+Since students frequently have little time between sessions, we made the program conveniently and readily available as a web
+application on laptops, iPads, and other devices, guaranteeing ease and wide accessibility.
 
-WA provides a comprehensive platform for students to track their daily emotions, habits, and progress through features such as a daily journal, habit tracker, goal setting, and personalized recommendations. Additionally, the app offers educational resources, an AI chatbot for support, and access to local mental health resources tailored to student needs.
+With tools including a daily journal, habit tracker, goal setting, and tailored suggestions, Eunoia offers students an 
+extensive tool to monitor their everyday feelings, routines, and development.
+The application also provides a variety of local mental health resources that are suited to the requirements of students, 
+educational materials, and an AI chatbot for assistance.
 
-The system is primarily designed for students who want to enhance their mental well-being while balancing academic and personal responsibilities. Users can log their daily experiences, track emotional states, and monitor progress toward personal goals with minimal effort. To keep students engaged and motivated, the app includes motivational content such as affirmations, quotes, and interactive challenges.
+The approach is mainly intended for students that wish to balance overall personal and academic obligations while improving 
+their state of mind.   
+With little effort, users can record their everyday events, keep tabs on their state of mind, and assess how they're doing 
+towards individual objectives. 
+The application contains inspirational quotations, affirmations, and interactive activities to maintain young people 
+interested and inspired.
 
-WA also serves as a resource hub, providing access to blog posts, educational content, and a directory of local student support services. The AI chatbot will offer immediate, personalized support, answering questions and providing guidance based on the user’s needs.
+A database of local student support services, blog entries, and instructional materials are all accessible through Eunoia, 
+which also acts as a reference centre. 
+According to the user's demands, the AI chatbot will provide prompt, individualized assistance by responding to inquiries 
+and offering advice.
 
-To ensure a personalized experience, the app includes a sign-up questionnaire to gather initial user preferences and goals. The user profile will dynamically update based on interactions, ensuring that recommendations and content remain relevant. Users can customize their experience by enabling reminders and notifications or opting for a more minimalistic interface. A disclaimer page will ensure users understand the app’s limitations and encourage them to seek professional help when necessary.
+The application offers a sign-up questionnaire to collect information on how users deal with certain situations in order to 
+provide a tailored experience. 
+In order to keep suggestions and material current, the user profile will be updated constantly in response to engagements.   
+By turning on alerts and reminders or choosing a simpler design, users may personalize their experience. 
+Users will be made aware of the app's limits and encouraged to seek professional assistance when needed thanks to a disclaimer 
+page.
 
-Unlike many existing mental health and wellness tools that lack personalization and accessibility for students, WA is built with their unique needs in mind. As a web application, it removes barriers to entry, making it available anytime and anywhere without requiring downloads or installations. Future updates may include additional features such as student community forums or integration with wearable devices for enhanced tracking.
-
-This project will be considered successful if students report improved mental health, increased engagement with the app’s features, and a high level of satisfaction with its accessibility and personalization. Success will also be measured by a reduction in student-reported stress levels and an increase in the achievement of personal wellness goals. By developing this app in-house, we ensure that it remains cost-effective, adaptable to user feedback, and truly built for students, by students.
-
+The work will be deemed successful when users express greater contentment about the app's accessibility and customisation, 
+enhanced engagement using its functions, and better mental wellness.  
+Lower stress levels as indicated by students and higher attainment of individual wellness objectives will also be used as 
+indicators of success. 
+Making this software in-house guarantees that it will continue to be affordable, responsive to user input, and genuinely 
+created for students, by students.
