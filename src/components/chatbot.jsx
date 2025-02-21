@@ -25,15 +25,16 @@ const Chatbot = () => {
         responseMimeType: "text/plain",
     };
 
-    async function generateResponse(AIrequest) {
-        const chatSession = model.startChat({
+    async function generateResponse(AIrequest) { //function that generates the response (Passes in user argument)
+        const chatSession = model.startChat({ //starts the chat session with default configs
             generationConfig,
             history: history,
         });
 
-        const result = await chatSession.sendMessage(AIrequest);
+        const result = await chatSession.sendMessage(AIrequest); //waits for response from the model
         return result.response.text();
     }
+
 
     const handleSend = async () => {
         if (input.trim()) {  //checks for emptiness or empty spaces
@@ -58,12 +59,12 @@ const Chatbot = () => {
     return (
         <div className="chatbot" >
             <div>
-                <button id="openBtn" onClick={toggleChat}>Open chatbot</button>
+                <button id="openBtn" onClick={toggleChat}>Open EunoiaBot</button> {/*button to open chatbot*/}
             </div>
 
             <div className='chatbot-container hidden'>
                 <div className="chatbot-header">
-                    <span id='aiName'>Chatbot</span>
+                    <span id='aiName'>EunoiaBot</span>
                     <button id="closeBtn" onClick={toggleChat}>⛌</button>
                 </div>
 
