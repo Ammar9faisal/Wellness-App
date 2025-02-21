@@ -5,7 +5,7 @@ import Login from './pages/Login.jsx'
 import { createBrowserRouter, RouterProvider, redirect} from 'react-router-dom'
 import Dashboard from './pages/dashboard.jsx'
 import { account } from './appwrite'
-import { Question1 } from './pages/Question1.jsx'
+import Question1 from './pages/Question1.jsx'
 
 
 
@@ -41,3 +41,5 @@ createRoot(document.getElementById('root')).render(
     <RouterProvider router={router} />
   </StrictMode>,
 )
+
+

@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import './Question.css';
+import './Question1.css';
 import background from '../assets/Purple.png';
 
-function Question() {
+function Question1() {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     
     const answers = [
-        { id: 'A', text: 'What are some of the issues you face in your day to day life?' },
-        { id: 'B', text: 'What are some of the issues you face in your day to day life?' },
-        { id: 'C', text: 'What are some of the issues you face in your day to day life?' },
-        { id: 'D', text: 'What are some of the issues you face in your day to day life?' }
+        { id: 'A', text: 'Feeling constantly worried or overwhelmed by small things.' },
+        { id: 'B', text: 'Struggling to resist certain habits or urges.' },
+        { id: 'C', text: 'Feeling persistently sad, unmotivated, or hopeless.' },
+        { id: 'D', text: 'I\'m not sure' }
     ];
 
     const handleSelect = (id) => {
@@ -23,14 +23,14 @@ function Question() {
                 <div className="progress-bar">
                     <div className="progress"></div>
                     <div className="dashes">
-                        {[...Array(8)].map((_, i) => (
+                        {[...Array(10)].map((_, i) => (
                             <div key={i} className={`dash ${i === 0 ? 'active' : ''}`}></div>
                         ))}
                     </div>
                 </div>
                 
                 <h1>Question 1</h1>
-                <p>What are some of the issues you face in your day to day life?</p>
+                <p>How would you describe your biggest daily struggle?</p>
                 
                 <div className="answer-options">
                     {answers.map((answer) => (
@@ -50,4 +50,4 @@ function Question() {
     );
 }
 
-export default Question;
+export default Question1;
