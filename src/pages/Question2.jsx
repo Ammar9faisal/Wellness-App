@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Question2.css';
+import './Question.css';
 import background from '../assets/Purple.png';
 
 function Question2() {

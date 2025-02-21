@@ -7,6 +7,7 @@ import Dashboard from './pages/dashboard.jsx'
 import { account } from './appwrite'
 import Question1 from './pages/Question1.jsx'
 import Question2 from './pages/Question2.jsx'
+import Question3 from './pages/Question2.jsx'
 
 
 
@@ -39,6 +40,11 @@ const router = createBrowserRouter([  //initialize the browser rerouter to navig
   {
     path: '/question2',    //creates path to login page
     element: <Question2 />,
+  },
+
+  {
+    path: '/question3',    //creates path to login page
+    element: <Question3 />,
   }
 ])
 

@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import './Question.css';
 import background from '../assets/Purple.png';
 
-function Question1() {
+function Question3() {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     
     const answers = [
-        { id: 'A', text: 'Feeling constantly worried or overwhelmed by small things.' },
-        { id: 'B', text: 'Struggling to resist certain habits or urges.' },
-        { id: 'C', text: 'Feeling persistently sad, unmotivated, or hopeless.' },
+        { id: 'A', text: 'I overthink and feel tense, even about minor issues.' },
+        { id: 'B', text: 'I turn to substances or behaviors (e.g., alcohol, smoking, gaming, etc.).' },
+        { id: 'C', text: 'I withdraw from people and lose interest in activities.' },
         { id: 'D', text: 'I\'m not sure' }
     ];
 
@@ -29,8 +29,8 @@ function Question1() {
                     </div>
                 </div>
                 
-                <h1>Question 1</h1>
-                <p>How would you describe your biggest daily struggle?</p>
+                <h1>Question 2</h1>
+                <p>How do you usually handle stress?</p>
                 
                 <div className="answer-options">
                     {answers.map((answer) => (
@@ -50,4 +50,4 @@ function Question1() {
     );
 }
 
-export default Question1;
+export default Question3;
