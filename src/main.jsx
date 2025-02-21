@@ -5,6 +5,7 @@ import Login from './pages/Login.jsx'
 import { createBrowserRouter, RouterProvider, redirect} from 'react-router-dom'
 import Dashboard from './pages/dashboard.jsx'
 import { account } from './appwrite'
+import { Question1 } from './pages/Question1.jsx'
 
 
 
@@ -28,6 +29,11 @@ const router = createBrowserRouter([  //initialize the browser rerouter to navig
     //   }
     // }
   },
+
+  {
+    path: '/question1',    //creates path to login page
+    element: <Question1 />,
+  }
 ])
 
 createRoot(document.getElementById('root')).render(
