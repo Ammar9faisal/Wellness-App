@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Question.css';
 import background from '../assets/Purple.png';
@@ -14,8 +14,17 @@ function Question1() {
         { id: 'D', text: 'I\'m not sure' }
     ];
 
+    useEffect(() => {
+        const savedAnswers = JSON.parse(localStorage.getItem('surveyAnswers')) || [];
+        if (savedAnswers[0]) setSelectedAnswer(savedAnswers[0]); 
+    }, []);
+
     const handleSelect = (id) => {
         setSelectedAnswer(id);
+
+        let savedAnswers = JSON.parse(localStorage.getItem('surveyAnswers')) || [];
+        savedAnswers[0] = id; // Store answer at index 0 (Question 1)
+        localStorage.setItem('surveyAnswers', JSON.stringify(savedAnswers));
     };
 
     return (
