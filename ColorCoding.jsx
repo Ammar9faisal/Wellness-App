@@ -1,51 +1,41 @@
-//sample code - not been tested - just to give an idea
-
 import React, { useState } from "react";
 
-// whatever the questionnaire file would be
-// import Questionnaire from "./Questionnaire";
+//whatever is the file name for questions
+//import Questionnaire from "./Questionnaire";
 
-//whatever the dashboard file would be
-// import Dashboard from "./Dashboard";
+//whatever is teh file nam efgor the dahsboard
+//import Dashboard from "./Dashboard";
 
 const App = () => {
-  const [answers, setAnswers] = useState(Array(10).fill(null));
+  const [dashboardColor, setDashboardColor] = useState("white");
 
-  const handleAnswer = (index, option) => {
-    const newAnswers = [...answers];
-    newAnswers[index] = option;
-    setAnswers(newAnswers);
-  };
-
-  // Function to determine the dominant answer
-  const getDashboardColor = () => {
+  const handleComplete = (answers) => {
     const count = { A: 0, B: 0, C: 0, D: 0 };
-
     answers.forEach((answer) => {
       if (answer) count[answer]++;
     });
 
-    const maxChoice = Object.keys(count).reduce((a, b) =>
-      count[a] > count[b] ? a : b
-    );
+    const maxChoice = Object.keys(count).reduce((a, b) => (count[a] > count[b] ? a : b));
 
-    // Return the corresponding color
     switch (maxChoice) {
       case "A":
-        return "green";
+        setDashboardColor("green");
+        break;
       case "B":
-        return "orange";
+        setDashboardColor("orange");
+        break;
       case "C":
-        return "purple";
+        setDashboardColor("purple");
+        break;
       default:
-        return "white";
+        setDashboardColor("white");
     }
   };
 
   return (
     <div>
-      <Questionnaire answers={answers} onAnswer={handleAnswer} />
-      <Dashboard color={getDashboardColor()} />
+      <Questionnaire onComplete={handleComplete} />
+      <Dashboard color={dashboardColor} />
     </div>
   );
 };
