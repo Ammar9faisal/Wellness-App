@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Question.css';
 import background from '../assets/Purple.png';
 
 function Question3() {
+    const navigate = useNavigate();
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     
     const answers = [
@@ -44,7 +46,15 @@ function Question3() {
                     ))}
                 </div>
                 
-                <button className="next-button">Next</button>
+                <div className="navigation-buttons">
+                    <button className="back-button" onClick={() => navigate('/question2')}>
+                        Back
+                    </button>
+        
+                    <button className="next-button" onClick={() => navigate('/question4')}>
+                        Next
+                    </button>
+                </div>
             </div>
         </div>
     );
