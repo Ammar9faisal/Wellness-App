@@ -24,7 +24,7 @@ function Question4() {
                     <div className="progress"></div>
                     <div className="dashes">
                         {[...Array(10)].map((_, i) => (
-                            <div key={i} className={`dash ${i === 0 ? 'active' : ''}`}></div>
+                            <div key={i} className={`dash ${i === 3 ? 'active' : ''}`}></div>
                         ))}
                     </div>
                 </div>
