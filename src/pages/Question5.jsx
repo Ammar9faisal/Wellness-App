@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import './Question.css';
 import background from '../assets/Purple.png';
 
-function Question3() {
+function Question5() {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     
     const answers = [
-        { id: 'A', text: 'I get nervous or self-conscious in social settings.' },
-        { id: 'B', text: 'I often avoid people because I feel judged about my habits.' },
-        { id: 'C', text: 'I feel indifferent or too exhausted to engage with others.' },
+        { id: 'A', text: 'Restless, nervous, or on edge.' },
+        { id: 'B', text: 'Frustrated, guilty, or craving relief.' },
+        { id: 'C', text: 'Empty, numb, or deeply sad.' },
         { id: 'D', text: 'I\'m not sure' }
     ];
 
@@ -29,8 +29,8 @@ function Question3() {
                     </div>
                 </div>
                 
-                <h1>Question 3</h1>
-                <p> How do you feel about social interactions?</p>
+                <h1>Question 5</h1>
+                <p>What best describes your emotional state most of the time?</p>
                 
                 <div className="answer-options">
                     {answers.map((answer) => (
@@ -50,4 +50,4 @@ function Question3() {
     );
 }
 
-export default Question3;
+export default Question5;

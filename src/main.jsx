@@ -7,7 +7,9 @@ import Dashboard from './pages/dashboard.jsx'
 import { account } from './appwrite'
 import Question1 from './pages/Question1.jsx'
 import Question2 from './pages/Question2.jsx'
-import Question3 from './pages/Question2.jsx'
+import Question3 from './pages/Question3.jsx'
+import Question4 from './pages/Question4.jsx'
+import Question5 from './pages/Question5.jsx'
 
 
 
@@ -45,6 +47,16 @@ const router = createBrowserRouter([  //initialize the browser rerouter to navig
   {
     path: '/question3',    //creates path to login page
     element: <Question3 />,
+  },
+
+  {
+    path: '/question4',    //creates path to login page
+    element: <Question4 />,
+  },
+
+  {
+    path: '/question5',    //creates path to login page
+    element: <Question5 />,
   }
 ])
 
