@@ -26,3 +26,30 @@ LOGIC
 - LOGIC FOR COLOR CHANGE
     - calculate the answer that is selected the most
     - apply the color to dashboard
+
+
+// after working on the ColorCoding.jsx 
+// apply dashboard to accept the colors 
+
+SAMPLE CODE - NEEDS TO BE MODIFIED
+import React from "react";
+
+const Dashboard = ({ color }) => {
+  return (
+    <div
+      style={{
+        backgroundColor: color,
+        minHeight: "100vh",
+        padding: "20px",
+        transition: "background-color 0.5s ease",
+      }}
+    >
+      <h1>Welcome to Your Wellness Dashboard</h1>
+      <p>Your personalized dashboard based on your responses.</p>
+    </div>
+  );
+};
+
+export default Dashboard;
+
+
