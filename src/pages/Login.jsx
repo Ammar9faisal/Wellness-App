@@ -4,6 +4,7 @@ import { account, ID } from '../appwrite';
 import GoogleButton from 'react-google-button'
 import background from '../assets/Purple.png';
 import { useNavigate } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 function Login() {
   //initialized the state of inputs for sign up
@@ -90,6 +91,12 @@ function Login() {
     <div className="loginPage">
       <img src={background} alt='background' className='login-background'/> {/* Background image*/}
       <div className='login-container'>
+
+        <div className="login-header">
+          <img src={logo} alt="Eunoia Hub Logo" className="login-logo" />
+          <h1 className="login-title">Eunoia Hub</h1>
+        </div>
+
         <div className='signUp' style={{display: 'none'}}>   {/* Sign up hidden by default*/}
           <h1>Sign Up</h1>
           <input className="email" type="email" placeholder="Email" onChange={e => setUser(e.target.value)}/>       {/* Inputs for signup*/}  
@@ -119,5 +126,7 @@ function Login() {
       </div>
     </div>
   );
+
+  
 }
 export default Login
