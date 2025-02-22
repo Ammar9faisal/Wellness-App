@@ -16,8 +16,8 @@ function Login() {
   const [loginPassword, setLoginPassword] = useState("");
   
   const validateEmail = (email) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(String(email).toLowerCase());
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;   //Regex statemet to validate email fromat
+    return re.test(String(email).toLowerCase());  //returns the email in lowercase to keep the email format consistent
   };
 
   async function handleLogin() { // Login with Google by creating an OAuth2 session
@@ -71,13 +71,13 @@ function Login() {
     const signUpBtn = document.querySelector('.signup-btn');
     const signInBtn = document.querySelector('.signin-btn');
 
-    if (signUp.style.display === 'none') {
+    if (signUp.style.display === 'none') {   // If sign up is hidden, show sign up and hide sign in
       signUp.style.display = 'block';
       signIn.style.display = 'none';
       signUpBtn.style.display = 'none';
       signInBtn.style.display = 'block';
     } else {
-      signUp.style.display = 'none';
+      signUp.style.display = 'none';    // If sign up is shown, hide sign up and show sign in
       signIn.style.display = 'block';
       signUpBtn.style.display = 'block';
       signInBtn.style.display = 'none';
