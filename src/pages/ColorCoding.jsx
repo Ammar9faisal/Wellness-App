@@ -7,22 +7,15 @@ const ColorCoding = ({ setColor }) => {
     useEffect(() => {
         const finalCategory = localStorage.getItem('finalCategory') || 'D';
 
-        let color = 'white';
-        switch (finalCategory) {
-            case 'A':
-                color = 'green';
-                break;
-            case 'B':
-                color = 'orange';
-                break;
-            case 'C':
-                color = 'purple';
-                break;
-            default:
-                color = 'white';
-        }
+        const colorMap = {
+            A: 'green',
+            B: 'orange',
+            C: 'purple',
+            D: 'white'
+        };
 
-        setColor(color); // Pass color up to Dashboard
+        const color = colorMap[finalCategory] || 'white';
+        setColor(color);
     }, [setColor]);
 
     return (
