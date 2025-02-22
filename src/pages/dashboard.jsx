@@ -1,78 +1,69 @@
-import React, { useState } from "react";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { ArrowUpRight, Rocket, Target, Moon, PieChart, Brain, Bot } from "lucide-react"
 
-// DIRECTLY USING API KEY HERE
-const genAI = new GoogleGenerativeAI("AIzaSyBaG5TftGuhPkqVEr7bGCEhj438se6ZxNI"); // Make sure this is your valid key
-
-const Dashboard = () => {
-  const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState("");
-
-  const sendMessage = async () => {
-    if (!input.trim()) return;
-
-    // Add user message to chat
-    setMessages([...messages, { text: input, sender: "user" }]);
-
-    try {
-      const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-      const result = await model.generateContent(input);
-      const response = await result.response.text();
-
-      // Add AI response to chat
-      setMessages((prev) => [...prev, { text: response, sender: "bot" }]);
-    } catch (error) {
-      console.error("Error:", error);
-      setMessages((prev) => [...prev, { text: "Error retrieving response. Try again.", sender: "bot" }]);
-    }
-
-    setInput("");
-  };
-
+export default function Dashboard() {
   return (
-    <div style={{ padding: "20px", maxWidth: "600px", margin: "auto", color: "white" }}>
-      <h1>Gemini AI Chatbot</h1>
-      <div
-        style={{
-          height: "400px",
-          overflowY: "scroll",
-          border: "1px solid gray",
-          padding: "10px",
-          marginBottom: "10px",
-          backgroundColor: "#f9f9f9",
-          color: "black",
-        }}
-      >
-        {messages.map((msg, index) => (
-          <div key={index} style={{ textAlign: msg.sender === "user" ? "right" : "left" }}>
-            <p
-              style={{
-                background: msg.sender === "user" ? "#007bff" : "#ddd",
-                color: msg.sender === "user" ? "white" : "black",
-                padding: "8px",
-                borderRadius: "8px",
-                display: "inline-block",
-                maxWidth: "80%",
-              }}
-            >
-              {msg.text}
-            </p>
-          </div>
-        ))}
+    <div className="p-6 max-w-7xl mx-auto">
+      <div className="flex items-center gap-4 mb-8">
+        <div className="w-12 h-12 flex items-center justify-center bg-red-100 rounded-lg">
+          <Rocket className="w-6 h-6" />
+        </div>
+        <h1 className="text-2xl font-semibold">Hi, User!</h1>
       </div>
 
-      <input
-        type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        placeholder="Type a message..."
-        style={{ width: "80%", padding: "10px", fontSize: "16px" }}
-      />
-      <button onClick={sendMessage} style={{ padding: "10px", marginLeft: "10px" }}>
-        Send
-      </button>
-    </div>
-  );
-};
+      <section className="mb-8">
+        <h2 className="text-lg font-medium mb-4">Earn Badges as you reach milestones and stay motivated</h2>
+        <div className="flex gap-4">
+          <Badge icon={<Target className="w-8 h-8" />} color="bg-red-100" />
+          <Badge icon={<Moon className="w-8 h-8" />} color="bg-yellow-100" />
+          <Badge icon="14" color="bg-orange-100" />
+        </div>
+      </section>
 
-export default Dashboard;
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <DashboardCard
+          title="Macro Tracker"
+          description="Track your daily macros effortlessly!"
+          icon={<PieChart className="w-16 h-16 text-gray-600" />}
+          bgColor="bg-purple-50"
+        />
+        <DashboardCard
+          title="Mindful Check-in"
+          description="Complete your daily check-in now"
+          icon={<Brain className="w-16 h-16 text-gray-600" />}
+          bgColor="bg-white"
+        />
+        <DashboardCard
+          title="Wellness bot"
+          description="Meet your personal wellness bot!"
+          icon={<Bot className="w-16 h-16 text-gray-600" />}
+          bgColor="bg-purple-100"
+        />
+      </div>
+    </div>
+  )
+}
+
+function Badge({ icon, color }) {
+  return (
+    <div className={`w-16 h-16 rounded-full ${color} flex items-center justify-center`}>
+      {typeof icon === "string" ? <span className="text-xl font-semibold">{icon}</span> : icon}
+    </div>
+  )
+}
+
+function DashboardCard({ title, description, icon, bgColor }) {
+  return (
+    <div className={`p-6 ${bgColor} rounded-lg shadow-sm`}>
+      <div className="flex justify-between items-start mb-4">
+        <h3 className="text-xl font-semibold">{title}</h3>
+        <button className="p-1 hover:bg-gray-200 rounded-full">
+          <ArrowUpRight className="h-4 w-4" />
+        </button>
+      </div>
+      <p>{description}</p>
+      <div className="mt-4 flex justify-center">
+        <div className="w-32 h-32 flex items-center justify-center">{icon}</div>
+      </div>
+    </div>
+  )
+}
