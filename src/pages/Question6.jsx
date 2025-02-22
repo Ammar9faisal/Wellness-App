@@ -60,7 +60,11 @@ function Question6() {
                         Back
                     </button>
         
-                    <button className="next-button" onClick={() => navigate('/question7')}>
+                    <button 
+                        className={`next-button ${!selectedAnswer ? 'disabled' : ''}`} 
+                        onClick={() => navigate('/question7')} 
+                        disabled={!selectedAnswer} 
+                    >
                         Next
                     </button>
                 </div>
