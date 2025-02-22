@@ -21,7 +21,7 @@ function Login() {
   };
 
   async function handleLogin() { // Login with Google by creating an OAuth2 session
-    account.createOAuth2Session('google', 'http://localhost:5173', 'http://localhost:5173/fail')
+    account.createOAuth2Session('google', 'http://localhost:5173/dashboard', 'http://localhost:5173/fail')
   }
 
   async function handleCreateAccount() { // Create an account using username and password
@@ -33,10 +33,8 @@ function Login() {
       alert('Please enter a valid email'); // Alert if email is invalid
       return;
     }
-
     const promise = account.create(ID.unique(), email, password);
-    
-    promise.then(function (response) {   //error handling for account creation - same thing as try catch statements
+    promise.then(function (response) {   //error handling for account creation - similar to try catch statements
       console.log(response); // Success
       navigate('/dashboard') // Redirect to dashboard after successful account creation  
 
@@ -44,7 +42,7 @@ function Login() {
       console.log(error); // Failure
   });
   }
-
+  
   async function handleExistingAccount() { // Login with an existing account
     if (!loginEmail || !loginPassword) {
       alert('Please enter a valid email and password'); // Alert if email or password is empty
@@ -71,7 +69,7 @@ function Login() {
     const signUp = document.querySelector('.signUp');
     const signIn = document.querySelector('.signIn');
     const signUpBtn = document.querySelector('.signup-btn');
-    const signInBtn = document.querySelector('.singin-btn');
+    const signInBtn = document.querySelector('.signin-btn');
 
     if (signUp.style.display === 'none') {
       signUp.style.display = 'block';

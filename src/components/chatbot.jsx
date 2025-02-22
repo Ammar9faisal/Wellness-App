@@ -65,19 +65,19 @@ const Chatbot = () => {
             <div className='chatbot-container hidden'>
                 <div className="chatbot-header">
                     <span id='aiName'>EunoiaBot</span>
-                    <button id="closeBtn" onClick={toggleChat}>⛌</button>
+                    <button id="closeBtn" onClick={toggleChat}>⛌</button>  {/*button to close chatbot*/}
                 </div>
 
                 <div className="chatbot-messages">
                     {messages.map((message, index) => (
-                        <div key={index} className={`message ${message.user}`}>
+                        <div key={index} className={`message ${message.user}`}> {/*displays the messages*/}
                             {message.text}
                         </div>
                     ))}
                 </div>
                 <div>
                     <input placeholder="Talk to AI" className="chatbot-input" type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleSend()}/>
-                    <button className="sendButton" onClick={handleSend}>Send</button>
+                    <button className="sendButton" onClick={handleSend}>Send</button> {/*button to send message*/}
                 </div>
             </div>
         </div>

@@ -52,7 +52,4 @@ describe("Chatbot component testing", () => { //tests related to rendering of ch
         fireEvent.change(input, { target: { value: "what is my name?" } });
         fireEvent.keyDown(input, { key: "Enter", code: "Enter" });
     });
-
-
-    desc
 });
