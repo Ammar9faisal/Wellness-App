@@ -36,6 +36,8 @@ function QResults() {
             finalCategory = "D";
         }
 
+        localStorage.setItem('finalCategory', finalCategory);
+
         // Set results based on final category
         if (finalCategory === 'A') setResultText('Seems like you may have Anxiety.');
         else if (finalCategory === 'B') setResultText('Seems like you may have an Addiction.');
