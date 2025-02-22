@@ -1,43 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import QResults from './QResults.jsx';
 
-//whatever is the file name for questions
-//import Questionnaire from "./Questionnaire";
+const ColorCoding = () => {
+    const navigate = useNavigate();
+    const [dashboardColor, setDashboardColor] = useState('white');
 
-//whatever is teh file nam efgor the dahsboard
-//import Dashboard from "./Dashboard";
+    useEffect(() => {
+        const finalCategory = localStorage.getItem('finalCategory') || 'D';
 
-const App = () => {
-  const [dashboardColor, setDashboardColor] = useState("white");
+        // Set dashboard color based on final category
+        switch (finalCategory) {
+            case 'A':
+                setDashboardColor('green');
+                break;
+            case 'B':
+                setDashboardColor('purple');
+                break;
+            case 'C':
+                setDashboardColor('orange');
+                break;
+            default:
+                setDashboardColor('white');
+        }
+    }, []);
 
-  const handleComplete = (answers) => {
-    const count = { A: 0, B: 0, C: 0, D: 0 };
-    answers.forEach((answer) => {
-      if (answer) count[answer]++;
-    });
-
-    const maxChoice = Object.keys(count).reduce((a, b) => (count[a] > count[b] ? a : b));
-
-    switch (maxChoice) {
-      case "A":
-        setDashboardColor("green");
-        break;
-      case "B":
-        setDashboardColor("orange");
-        break;
-      case "C":
-        setDashboardColor("purple");
-        break;
-      default:
-        setDashboardColor("white");
-    }
-  };
-
-  return (
-    <div>
-      <Questionnaire onComplete={handleComplete} />
-      <Dashboard color={dashboardColor} />
-    </div>
-  );
+    return (
+        <div className="dashboard" style={{ backgroundColor: dashboardColor }}>
+            <h1>Welcome to your Dashboard</h1>
+            <button onClick={() => navigate('/results')}>Go Back to Results</button>
+        </div>
+    );
 };
 
-export default App;
+export default ColorCoding;
