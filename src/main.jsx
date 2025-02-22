@@ -5,7 +5,8 @@ import Login from './pages/Login.jsx'
 import { createBrowserRouter, RouterProvider, redirect} from 'react-router-dom'
 import Dashboard from './pages/dashboard.jsx'
 import { account } from './appwrite'
-import Survey from './pages/survey.jsx'
+import Survey from './pages/Survey.jsx'
+
 
 
 const router = createBrowserRouter([  //initialize the browser rerouter to navigate between pages
