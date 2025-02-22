@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ColorCoding from './ColorCoding';
 import Chatbot from '../components/chatbot.jsx';
 
-const Dashboard = ({ color = 'white' }) => {
+const Dashboard = () => {
+    const [dashboardColor, setDashboardColor] = useState('white');
+
     const backgroundColors = {
         green: '#d4edda',
         orange: '#ffeeba',
@@ -10,11 +12,11 @@ const Dashboard = ({ color = 'white' }) => {
         white: '#ffffff'
     };
 
-    const backgroundColor = backgroundColors[color] || backgroundColors.white;
+    const backgroundColor = backgroundColors[dashboardColor] || backgroundColors.white;
 
     return (
         <div style={{ backgroundColor, minHeight: '100vh' }}>
-            <ColorCoding />
+            <ColorCoding setColor={setDashboardColor} />
             <h1>You are logged in</h1>
             <Chatbot />
         </div>

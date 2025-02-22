@@ -2,28 +2,31 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import QResults from './QResults.jsx';
 
-const ColorCoding = () => {
+const ColorCoding = ({ setColor }) => {
     const navigate = useNavigate();
     const [dashboardColor, setDashboardColor] = useState('white');
 
     useEffect(() => {
         const finalCategory = localStorage.getItem('finalCategory') || 'D';
 
-        // Set dashboard color based on final category
+        let color = 'white';
         switch (finalCategory) {
             case 'A':
-                setDashboardColor('green');
+                color = 'green';
                 break;
             case 'B':
-                setDashboardColor('purple');
+                color = 'purple';
                 break;
             case 'C':
-                setDashboardColor('orange');
+                color = 'orange';
                 break;
             default:
-                setDashboardColor('white');
+                color = 'white';
         }
-    }, []);
+
+        setDashboardColor(color);
+        setColor(color); // <-- Pass the color up to Dashboard
+    }, [setColor]);
 
     return (
         <div className="dashboard" style={{ backgroundColor: dashboardColor }}>
@@ -32,5 +35,6 @@ const ColorCoding = () => {
         </div>
     );
 };
+
 
 export default ColorCoding;
