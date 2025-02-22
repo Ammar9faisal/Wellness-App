@@ -1,13 +1,22 @@
 import React from 'react';
+import ColorCoding from './ColorCoding';
 import Chatbot from '../components/chatbot.jsx';
-import ColorCoding from './ColorCoding.jsx';
 
-const Dashboard = () => {
+const Dashboard = ({ color = 'white' }) => {
+    const backgroundColors = {
+        green: '#d4edda',
+        orange: '#ffeeba',
+        purple: '#e2d4f0',
+        white: '#ffffff'
+    };
+
+    const backgroundColor = backgroundColors[color] || backgroundColors.white;
+
     return (
-        <div>
-            <ColorCoding/>
+        <div style={{ backgroundColor, minHeight: '100vh' }}>
+            <ColorCoding />
             <h1>You are logged in</h1>
-            <Chatbot/>
+            <Chatbot />
         </div>
     );
 };
