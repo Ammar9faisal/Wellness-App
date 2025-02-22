@@ -1,4 +1,4 @@
-import backgroundImage from '../assets/Purple-Background.png'
+import backgroundImage from '../assets/Purple Background.png'
 import React, { useState } from 'react';
 import './Survey.css';
 
