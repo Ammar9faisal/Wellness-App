@@ -91,6 +91,7 @@
     padding: 0px 5px;
     background-color: white;
     font-size: medium;
+    box-sizing: border-box;
 } 
 
 .sendButton {  /* styling for the send button */
