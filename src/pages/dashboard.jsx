@@ -1,45 +1,53 @@
 import React from 'react';
 import { ArrowUpRight, Rocket, Target, Moon, PieChart, Brain, Bot } from 'lucide-react';
+import ChatBot from '../components/chatbot.jsx';
+import Sidebar from '../components/Sidebar.jsx';
 import './dashboard.css';
 
 export default function Dashboard() {
   return (
     <div className="dashboard-container">
-      <div className="dashboard-header">
-        <div className="dashboard-header-icon">
-          <Rocket className="w-6 h-6" />
+      <Sidebar />
+      <div className="dashboard-main">
+        <div className="dashboard-header">
+          <div className="dashboard-header-icon">
+            <Rocket className="w-6 h-6" />
+          </div>
+          <h1 className="dashboard-header-title">Hi, User!</h1>
         </div>
-        <h1 className="dashboard-header-title">Hi, User!</h1>
-      </div>
 
-      <section className="dashboard-section">
-        <h2 className="dashboard-section-title">Earn Badges as you reach milestones and stay motivated</h2>
-        <div className="dashboard-badges">
-          <Badge icon={<Target className="w-8 h-8" />} color="badge-red" />
-          <Badge icon={<Moon className="w-8 h-8" />} color="badge-yellow" />
-          <Badge icon="14" color="badge-orange" />
+        <div className="dashboard-content">
+          <ChatBot />
+
+          <section className="dashboard-section">
+            <h2 className="dashboard-section-title">Earn Badges as you reach milestones and stay motivated</h2>
+            <div className="dashboard-badges">
+              <Badge icon={<Target className="w-8 h-8" />} color="badge-red" />
+              <Badge icon={<Moon className="w-8 h-8" />} color="badge-yellow" />
+            </div>
+          </section>
+
+          <div className="dashboard-cards">
+            <DashboardCard
+              title="Macro Tracker"
+              description="Track your daily macros effortlessly!"
+              icon={<PieChart className="w-16 h-16 text-gray-600" />}
+              bgColor="dashboard-card-purple"
+            />
+            <DashboardCard
+              title="Mindful Check-in"
+              description="Complete your daily check-in now"
+              icon={<Brain className="w-16 h-16 text-gray-600" />}
+              bgColor="dashboard-card-purple"
+            />
+            <DashboardCard
+              title="Wellness bot"
+              description="Meet your personal wellness bot!"
+              icon={<Bot className="w-16 h-16 text-gray-600" />}
+              bgColor="dashboard-card-purple"
+            />
+          </div>
         </div>
-      </section>
-
-      <div className="dashboard-cards">
-        <DashboardCard
-          title="Macro Tracker"
-          description="Track your daily macros effortlessly!"
-          icon={<PieChart className="w-16 h-16 text-gray-600" />}
-          bgColor="dashboard-card-purple"
-        />
-        <DashboardCard
-          title="Mindful Check-in"
-          description="Complete your daily check-in now"
-          icon={<Brain className="w-16 h-16 text-gray-600" />}
-          bgColor="dashboard-card-white"
-        />
-        <DashboardCard
-          title="Wellness bot"
-          description="Meet your personal wellness bot!"
-          icon={<Bot className="w-16 h-16 text-gray-600" />}
-          bgColor="dashboard-card-purple"
-        />
       </div>
     </div>
   );
