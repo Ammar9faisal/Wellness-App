@@ -1,26 +1,27 @@
 import React from 'react';
 import { BarChart2, Heart, Users, Settings, LogOut } from 'lucide-react';
+import './sidebar.css';
 
 export function Sidebar() {
   return (
-    <div className="w-16 bg-white border-r flex flex-col items-center py-4 gap-8">
-      <div className="mb-8 text-xl font-bold">LOGO</div>
-      <nav className="flex flex-col gap-6">
-        <button className="p-2 rounded-lg bg-purple-100">
-          <BarChart2 className="w-5 h-5" />
+    <div className="sidebar">
+      <div className="sidebar-logo">LOGO</div>
+      <nav className="sidebar-nav">
+        <button className="sidebar-button sidebar-button-active">
+          <BarChart2 className="sidebar-icon" />
         </button>
-        <button className="p-2 rounded-lg hover:bg-gray-100">
-          <Heart className="w-5 h-5" />
+        <button className="sidebar-button">
+          <Heart className="sidebar-icon" />
         </button>
-        <button className="p-2 rounded-lg hover:bg-gray-100">
-          <Users className="w-5 h-5" />
+        <button className="sidebar-button">
+          <Users className="sidebar-icon" />
         </button>
-        <button className="p-2 rounded-lg hover:bg-gray-100">
-          <Settings className="w-5 h-5" />
+        <button className="sidebar-button">
+          <Settings className="sidebar-icon" />
         </button>
       </nav>
-      <button className="mt-auto p-2 rounded-lg hover:bg-gray-100">
-        <LogOut className="w-5 h-5" />
+      <button className="sidebar-logout">
+        <LogOut className="sidebar-icon" />
       </button>
     </div>
   );
