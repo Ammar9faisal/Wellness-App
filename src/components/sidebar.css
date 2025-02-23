@@ -11,10 +11,8 @@
 }
 
 .sidebar-logo {
-    margin-bottom: 2vw;
-    font-size: 1.25vw;
-    font-weight: bold;
-    color: white;
+    height: 4.5vh;
+    width: 2.5vw;
 }
 
 .sidebar-nav {
