@@ -2,7 +2,7 @@ import './Login.css'
 import {React, useState} from 'react';
 import { account, ID } from '../appwrite';
 import GoogleButton from 'react-google-button'
-import background from '/Users/ammarfaisal/Desktop/Wellness-App/src/assets/Purple.png';
+import background from '../assets/Purple.png';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
@@ -16,12 +16,12 @@ function Login() {
   const [loginPassword, setLoginPassword] = useState("");
   
   const validateEmail = (email) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(String(email).toLowerCase());
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;   //Regex statemet to validate email fromat
+    return re.test(String(email).toLowerCase());  //returns the email in lowercase to keep the email format consistent
   };
 
   async function handleLogin() { // Login with Google by creating an OAuth2 session
-    account.createOAuth2Session('google', 'http://localhost:5173', 'http://localhost:5173/fail')
+    account.createOAuth2Session('google', 'http://localhost:5173/dashboard', 'http://localhost:5173/fail')
   }
 
   async function handleCreateAccount() { // Create an account using username and password
@@ -33,10 +33,8 @@ function Login() {
       alert('Please enter a valid email'); // Alert if email is invalid
       return;
     }
-
     const promise = account.create(ID.unique(), email, password);
-    
-    promise.then(function (response) {   //error handling for account creation - same thing as try catch statements
+    promise.then(function (response) {   //error handling for account creation - similar to try catch statements
       console.log(response); // Success
       navigate('/dashboard') // Redirect to dashboard after successful account creation  
 
@@ -44,7 +42,7 @@ function Login() {
       console.log(error); // Failure
   });
   }
-
+  
   async function handleExistingAccount() { // Login with an existing account
     if (!loginEmail || !loginPassword) {
       alert('Please enter a valid email and password'); // Alert if email or password is empty
@@ -71,15 +69,15 @@ function Login() {
     const signUp = document.querySelector('.signUp');
     const signIn = document.querySelector('.signIn');
     const signUpBtn = document.querySelector('.signup-btn');
-    const signInBtn = document.querySelector('.singin-btn');
+    const signInBtn = document.querySelector('.signin-btn');
 
-    if (signUp.style.display === 'none') {
+    if (signUp.style.display === 'none') {   // If sign up is hidden, show sign up and hide sign in
       signUp.style.display = 'block';
       signIn.style.display = 'none';
       signUpBtn.style.display = 'none';
       signInBtn.style.display = 'block';
     } else {
-      signUp.style.display = 'none';
+      signUp.style.display = 'none';    // If sign up is shown, hide sign up and show sign in
       signIn.style.display = 'block';
       signUpBtn.style.display = 'block';
       signInBtn.style.display = 'none';
