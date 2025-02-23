@@ -29,7 +29,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/questionaire',
-    element: <Dashboard />, // ----------------> Change to the new questionaire component
+    element: <Survey />, // ----------------> Change to the new questionaire component
   },
 ]);
 
