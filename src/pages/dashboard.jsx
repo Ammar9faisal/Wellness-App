@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowUpRight, Rocket, Target, Moon, PieChart, Brain, Bot } from 'lucide-react';
 import ChatBot from '../components/Chatbot.jsx';
 import Sidebar from '../components/Sidebar.jsx';
@@ -10,6 +10,20 @@ import mindfulPic from '../assets/mindfulPic.png';
 
 export default function Dashboard() {
   const navigate = useNavigate();
+
+  const quotes = [
+    { quote: "Failure is simply the opportunity to begin again, this time more intelligently.", author: "Henry Ford", date: "2/21/2025" },
+    { quote: "Do what you can, with what you have, where you are.", author: "Theodore Roosevelt", date: "2/22/2025" },
+    { quote: "Your time is limited, so don’t waste it living someone else’s life.", author: "Steve Jobs", date: "2/23/2025" }
+  ];
+
+  const [currentQuote, setCurrentQuote] = useState(quotes[0]);
+
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    setCurrentQuote(quotes[randomIndex]);
+  }, []);
+
 
   return (
     console.log(stubDatabase),
@@ -26,6 +40,16 @@ export default function Dashboard() {
 
         <div className="dashboard-content">
           <ChatBot />
+
+          <section className="daily-quote">
+            <div className="overlap-group">
+              <p className="quote-text">{currentQuote.quote}</p>
+              <div className="overlap">
+                <div className="text-wrapper">- {currentQuote.author}</div>
+                <div className="div">{currentQuote.date}</div>
+              </div>
+            </div>
+          </section>
 
           <section className="dashboard-section">
             <h2 className="dashboard-section-title">Earn Badges as you reach milestones and stay motivated</h2>
