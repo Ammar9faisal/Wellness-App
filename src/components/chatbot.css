@@ -17,14 +17,15 @@
     font-size: medium;
     font-weight: bold;
     height: 3vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #aiName {
-    width: fit-content;
     margin: 0px;
     color: white;
     font-size: medium;
-    
 }
 
 #openBtn {
