@@ -24,6 +24,10 @@ export default function Dashboard() {
   const username = stubData.userProfile.username;  //--------------------> Getting username from stubData
   const wellnessIndex = stubData.wellnessIndexDaily.data;  //--------------------> Getting wellnessIndex from stubData
   
+  const toggleChat = () => {
+    const chatbot = document.querySelector('.chatbot-container');  //toggles open and close the chatbot
+    chatbot.classList.toggle('hidden');
+}
 
   return (
     <div className="dashboard-container">
@@ -94,6 +98,7 @@ export default function Dashboard() {
               icon={<Brain className="w-16 h-16 text-gray-600" />}
               bgColor="dashboard-card"
               image= {mindfulPic}
+              onClick={() => navigate('/survey')}
             />
 
             <DashboardCard  //creates a dashboard card for the wellness bot
@@ -102,6 +107,7 @@ export default function Dashboard() {
               icon={<Bot className="w-16 h-16 text-gray-600" />}
               bgColor="dashboard-card"
               image= {botPic}
+              onClick={() => toggleChat()}
             />
           </div>
         </div>
@@ -118,9 +124,9 @@ function Badge({ icon, color }) {  //creates constructor for badges with icon an
   );
 }
 
-function DashboardCard({ title, description, image, bgColor, toDo }) {   //creates constructor for dashboard cards with title, description, icon and background color
+function DashboardCard({ title, description, image, bgColor, onClick }) {   //creates constructor for dashboard cards with title, description, icon and background color
   return (
-    <div className={`dashboard-card ${bgColor}`}>  
+    <div className={`dashboard-card ${bgColor}`} onClick={onClick}>  
       <div className="dashboard-card-header">
         <h3 className="dashboard-card-title">{title}</h3>
       </div>
