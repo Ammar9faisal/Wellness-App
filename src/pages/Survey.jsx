@@ -6,10 +6,11 @@ import { questions, handleNext, handleBack, handleNumberClick } from '../service
 
 // Here's our main Survey component - think of it as the whole happiness survey experience
 const Survey = () => {
-  // currentPage tracks which screen we’re on: 0 is the intro, 1-7 are questions
+  // currentPage tracks which screen we’re on: 0 is the intro, 1-7 are questions, 8 is the completion page
   const [currentPage, setCurrentPage] = useState(0);
   // responses stores the user’s answers as an object, like {1: 5, 2: 3}
   const [responses, setResponses] = useState({});
+  const [showWarning, setShowWarning] = useState(false); // State to show warning message
   const navigate = useNavigate(); //hook to navigate to another page
 
   // Renders the progress bar at the top - shows which question we’re on
@@ -40,9 +41,12 @@ const Survey = () => {
                 className="number"
                 // Highlight the selected number by changing its background color
                 style={{
-                  backgroundColor: responses[currentPage] === i + 1 ? '#7b1fa2' : '#9c27b0',
+                  backgroundColor: responses[currentPage] === i + 1 ? '#54166e' : '#9c27b0',
                 }}
-                onClick={() => handleNumberClick(i + 1, currentPage, responses, setResponses)} // Save the rating when clicked
+                onClick={() => {
+                  handleNumberClick(i + 1, currentPage, responses, setResponses);
+                  setShowWarning(false); // Hide warning when a number is selected
+                }} // Save the rating when clicked
               >
                 {i + 1} {/* Display numbers 1-10 */}
               </div>
@@ -95,6 +99,17 @@ const Survey = () => {
           </div>
           <button className="next-button" onClick={() => handleNext(0, responses, setResponses, setCurrentPage, navigate)}>Next</button> {/* Start the survey */}
         </div>
+      ) : currentPage === 8 ? (
+        // Completion page (currentPage === 8)
+        <div className="container">
+          <div className="header-bar">
+            <div className="header-text">Daily Check-In Completed!</div> {/* Completion message */}
+          </div>
+          <div className="completion-text">
+            Thank you for completing your daily check-in. Your responses have been recorded.
+          </div>
+          <button className="dashboard-button" onClick={() => navigate('/dashboard')}>Go to Dashboard</button> {/* Button to navigate to dashboard */}
+        </div>
       ) : (
         // Question pages (currentPage 1-7)
         <div className="container">
@@ -104,8 +119,18 @@ const Survey = () => {
           </div>
           <div className="question">{questions[currentPage - 1].text}</div> {/* Show the question text */}
           {renderScale()} {/* Show the rating scale */}
+          {showWarning && <div className="warning">Please select an answer before proceeding.</div>} {/* Show warning if no answer is selected */}
           {/* Next button changes to "Finish" on the last page */}
-          <button className="next-button" onClick={() => handleNext(currentPage, responses, setResponses, setCurrentPage, navigate)}>
+          <button
+            className="next-button"
+            onClick={() => {
+              if (!responses[currentPage]) {
+                setShowWarning(true); // Show warning if no response is selected
+              } else {
+                handleNext(currentPage, responses, setResponses, setCurrentPage, navigate);
+              }
+            }}
+          >
             {currentPage === 7 ? 'Finish' : 'Next'}
           </button>
           {/* Back button appears starting from page 2 */}

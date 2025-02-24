@@ -153,6 +153,39 @@
   .emoji {
   font-size: 2.4vh;
   }
+.warning { 
+  color: #54166e;
+  border: 0.2vh solid #54166e;  
+  width: fit-content;
+  padding: 1vh;
+}
+
+/* Styles for the completion text */
+.completion-text {
+  font-size: 2.9vh;
+  color: #1C0227;
+  text-align: left;
+  margin: 23vh 0 5vh 0;
+  line-height: 1.5;
+  max-width: 90%;
+}
+
+/* Styles for the dashboard button */
+.dashboard-button {
+  background-color: #673ab7;
+  color: white;
+  padding: 1.2vh 3vw;
+  border: none;
+  border-radius: 2.5vh;
+  cursor: pointer;
+  font-size: 1.6vh;
+  transition: background-color 0.3s;
+  position: absolute;
+  bottom: 3vh;
+  right: 3vw;
+}
+
+
   /* The "Next" button - moves us forward */
   .next-button {
   background-color: #673ab7;
