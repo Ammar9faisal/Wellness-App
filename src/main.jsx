@@ -18,14 +18,9 @@ const router = createBrowserRouter([
     path: '/survey',
     element: <Survey />,    //creates default path to login page
   },
-  
   {
     path: '/dashboard',
     element: <Dashboard />, // Use the new App component for the dashboard
-  },
-  {
-    path: '/survey',
-    element: <Dashboard />, //  ---------------> Change to the new survey component
   },
   {
     path: '/questionaire',
