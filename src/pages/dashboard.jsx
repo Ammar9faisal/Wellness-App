@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUpRight, Rocket, Target, Moon, PieChart, Brain, Bot } from 'lucide-react';
+import { Rocket, Brain, Bot } from 'lucide-react';
 import ChatBot from '../components/chatbot.jsx';
 import Sidebar from '../components/Sidebar.jsx';
 import { useNavigate } from 'react-router-dom';
@@ -22,15 +22,14 @@ export default function Dashboard() {
   }, []);
 
   const username = stubData.userProfile.username;  //--------------------> Getting username from stubData
-
-  const wellnessIndex = stubData.wellnessIndexDaily;  //--------------------> Getting wellnessIndex from stubData
+  const wellnessIndex = stubData.wellnessIndexDaily.data;  //--------------------> Getting wellnessIndex from stubData
   
 
   return (
     <div className="dashboard-container">
       <Sidebar />
-      <div className="dashboard-main">
-        <div className="dashboard-header">
+      <div className="dashboard-main">  {/*Main dashboard container*/}
+        <div className="dashboard-header">  {/*Displays the header of the dashboard*/}
           <div className="dashboard-header-icon">
             <Rocket className="w-6 h-6" />
           </div>
@@ -41,7 +40,7 @@ export default function Dashboard() {
         <div className="dashboard-content">
           <ChatBot />
 
-          <section className="daily-quote">
+          <section className="daily-quote">  {/*Displays the daily quote*/}
             <div className="overlap-group">
               <p className="quote-text">{currentQuote.quote}</p>
               <div className="overlap">
@@ -51,11 +50,11 @@ export default function Dashboard() {
             </div>
           </section>
 
-          <section className="dashboard-section">
-            <h2 className="dashboard-section-title">Daily Mindful Check-In Results</h2>
+          <section className="dashboard-section">  
+            <h2 className="dashboard-section-title">Daily Mindful Check-In Results</h2> {/*Displays the chart*/}
             <div className="chart-container">
               <ResponsiveContainer width="100%" height={300}>
-                <LineChart data={stubData.wellnessIndexDaily} margin={{ top: 5, right: 20, left: 10, bottom: 10 }}>
+                <LineChart data={wellnessIndex} margin={{ top: 5, right: 20, left: 10, bottom: 10 }}>
                   <Label value="Wellness Index" offset={0} position="top" />
                   <XAxis dataKey="day">
                     <Label value="Day" offset={-5} position="bottom" />
@@ -89,7 +88,7 @@ export default function Dashboard() {
               bgColor="dashboard-card-purple"
             /> */}
             
-            <DashboardCard  
+            <DashboardCard    //creates a dashboard card for the daily check-in
               title="Mindful Check-in"
               description="Complete your daily check-in now"
               icon={<Brain className="w-16 h-16 text-gray-600" />}
@@ -97,7 +96,7 @@ export default function Dashboard() {
               image= {mindfulPic}
             />
 
-            <DashboardCard
+            <DashboardCard  //creates a dashboard card for the wellness bot
               title="Wellness bot"
               description="Meet your personal wellness bot!"
               icon={<Bot className="w-16 h-16 text-gray-600" />}
@@ -121,7 +120,7 @@ function Badge({ icon, color }) {  //creates constructor for badges with icon an
 
 function DashboardCard({ title, description, image, bgColor, toDo }) {   //creates constructor for dashboard cards with title, description, icon and background color
   return (
-    <div className={`dashboard-card ${bgColor}`}>
+    <div className={`dashboard-card ${bgColor}`}>  
       <div className="dashboard-card-header">
         <h3 className="dashboard-card-title">{title}</h3>
       </div>
