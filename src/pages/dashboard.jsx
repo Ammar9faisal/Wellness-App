@@ -1,39 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowUpRight, Rocket, Target, Moon, PieChart, Brain, Bot } from 'lucide-react';
 import ChatBot from '../components/chatbot.jsx';
-import ChatBot from '../components/chatbot.jsx';
 import Sidebar from '../components/Sidebar.jsx';
 import { useNavigate } from 'react-router-dom';
 import './dashboard.css';
-import stubDatabase from '../../stubdata.js';
 import botPic from '../assets/botPic.png';
 import mindfulPic from '../assets/mindfulPic.png';
+import { quotes } from '../assets/quotesList.js';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
+
+import { stubData } from '../stubdata.js';  //--------------------> Importing stubData from stubdata.js
 
 export default function Dashboard() {
   const navigate = useNavigate();
-
-  const quotes = [
-    { quote: "Failure is simply the opportunity to begin again, this time more intelligently.", author: "Henry Ford", date: "2/21/2025" },
-    { quote: "Do what you can, with what you have, where you are.", author: "Theodore Roosevelt", date: "2/22/2025" },
-    { quote: "Your time is limited, so don’t waste it living someone else’s life.", author: "Steve Jobs", date: "2/23/2025" },
-    { quote: "The only way to do great work is to love what you do.", author: "Steve Jobs", date: "2/24/2025" },
-    { quote: "Success is not the key to happiness. Happiness is the key to success.", author: "Albert Schweitzer", date: "2/25/2025" },
-    { quote: "Believe you can and you're halfway there.", author: "Theodore Roosevelt", date: "2/26/2025" },
-    { quote: "The best way to predict the future is to invent it.", author: "Alan Kay", date: "2/27/2025" },
-    { quote: "The only limit to our realization of tomorrow is our doubts of today.", author: "Franklin D. Roosevelt", date: "2/28/2025" },
-    { quote: "The purpose of our lives is to be happy.", author: "Dalai Lama", date: "3/1/2025" },
-    { quote: "Life is what happens when you're busy making other plans.", author: "John Lennon", date: "3/2/2025" },
-    { quote: "Get busy living or get busy dying.", author: "Stephen King", date: "3/3/2025" },
-    { quote: "You have within you right now, everything you need to deal with whatever the world can throw at you.", author: "Brian Tracy", date: "3/4/2025" },
-    { quote: "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.", author: "Christian D. Larson", date: "3/5/2025" },
-    { quote: "The only way to achieve the impossible is to believe it is possible.", author: "Charles Kingsleigh", date: "3/6/2025" },
-    { quote: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt", date: "3/7/2025" },
-    { quote: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson", date: "3/8/2025" },
-    { quote: "Keep your face always toward the sunshine—and shadows will fall behind you.", author: "Walt Whitman", date: "3/9/2025" },
-    { quote: "The best revenge is massive success.", author: "Frank Sinatra", date: "3/10/2025" },
-    { quote: "The only place where success comes before work is in the dictionary.", author: "Vidal Sassoon", date: "3/11/2025" },
-    { quote: "Don't be afraid to give up the good to go for the great.", author: "John D. Rockefeller", date: "3/12/2025" }
-  ];
 
   const [currentQuote, setCurrentQuote] = useState(quotes[0]);
 
@@ -42,9 +21,12 @@ export default function Dashboard() {
     setCurrentQuote(quotes[randomIndex]);
   }, []);
 
+  const username = stubData.userProfile.username;  //--------------------> Getting username from stubData
+
+  const wellnessIndex = stubData.wellnessIndexDaily;  //--------------------> Getting wellnessIndex from stubData
+  
 
   return (
-    console.log(stubDatabase),
     <div className="dashboard-container">
       <Sidebar />
       <div className="dashboard-main">
@@ -53,7 +35,7 @@ export default function Dashboard() {
             <Rocket className="w-6 h-6" />
           </div>
           <h1 className="dashboard-header-title">Dashboard</h1>
-          <h2 className="dashboard-header-subtitle">Welcome back, User!</h2>
+          <h2 className="dashboard-header-subtitle">Welcome back, {username}!</h2>
         </div>
 
         <div className="dashboard-content">
@@ -70,12 +52,31 @@ export default function Dashboard() {
           </section>
 
           <section className="dashboard-section">
+            <h2 className="dashboard-section-title">Daily Mindful Check-In Results</h2>
+            <div className="chart-container">
+              <ResponsiveContainer width="100%" height={300}>
+                <LineChart data={stubData.wellnessIndexDaily} margin={{ top: 5, right: 20, left: 10, bottom: 10 }}>
+                  <Label value="Wellness Index" offset={0} position="top" />
+                  <XAxis dataKey="day">
+                    <Label value="Day" offset={-5} position="bottom" />
+                  </XAxis>
+                  <YAxis domain={[0, 10]} ticks={[0, 2, 4, 6, 8, 10]}>
+                    <Label value="Wellness Index" angle={-90} position="Left" />
+                  </YAxis>
+                  <Line type="monotone" dataKey="wellnessIndex" stroke="#8884d8" />
+                  <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          </section>
+
+          {/* <section className="dashboard-section">     ----------> To be implemented in ITR2
             <h2 className="dashboard-section-title">Earn Badges as you reach milestones and stay motivated</h2>
             <div className="dashboard-badges">
               <Badge icon={<Target className="w-8 h-8" />} color="badge-red" />
               <Badge icon={<Moon className="w-8 h-8" />} color="badge-yellow" />
             </div>
-          </section>
+          </section> */}
 
           <div className="dashboard-cards">
 
@@ -110,7 +111,7 @@ export default function Dashboard() {
   );
 }
 
-function Badge({ icon, color }) {  //creates construcoor for badges with icon and color
+function Badge({ icon, color }) {  //creates constructor for badges with icon and color
   return (
     <div className={`badge ${color}`}>
       {typeof icon === 'string' ? <span className="text-xl font-semibold">{icon}</span> : icon}
