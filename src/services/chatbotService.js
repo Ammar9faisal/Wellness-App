@@ -17,12 +17,17 @@ const generationConfig = {  //sets the generation configuration for gemini AI
 };
 
 export async function generateResponse(AIrequest, history) {  //generates the response from the AI based on provided history and request
-    const chatSession = model.startChat({  
-        generationConfig,
-        history: history,
-    });
+    try {
+        const chatSession = model.startChat({  
+            generationConfig,
+            history: history,
+        });
 
-    const result = await chatSession.sendMessage(AIrequest);  //sends the message to the AI
-    return result.response.text();
+        const result = await chatSession.sendMessage(AIrequest);  //sends the message to the AI
+        return result.response.text();
+    } catch (error) {
+        console.error("Error generating response:", error);
+        throw new Error("Failed to generate response from the AI.");
+    }
 }
 

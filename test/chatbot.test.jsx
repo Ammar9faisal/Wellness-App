@@ -39,17 +39,18 @@ describe("Chatbot component testing", () => { //tests related to rendering of ch
         expect(screen.getByText("Hello! I'm here to support you on your wellness journey. How are you feeling today?")).toBeDefined();
     });
 
-    test("User history is stored", async () => {  //checks if user history is stored by s
+    test("User history is stored", async () => {  //checks if user message history is stored correctly
         render(<Chatbot />);
-        const openButton = screen.getByText("Open EunoiaBot"); 
+        const openButton = screen.getByText("Open EunoiaBot");   //opens chatbot window
         fireEvent.click(openButton);
 
-        const input = screen.getByPlaceholderText("Talk to AI");  
-        fireEvent.change(input, { target: { value: "hi, my name is ammar" } });
+        const input = screen.getByPlaceholderText("Talk to AI");    //defines the input
+        fireEvent.change(input, { target: { value: "This is a test prompt for a test case, please reply Yes, the history is stored" } }); //changes the input value to get expected response
         fireEvent.keyDown(input, { key: "Enter", code: "Enter" });
-        
-
-        fireEvent.change(input, { target: { value: "what is my name?" } });
-        fireEvent.keyDown(input, { key: "Enter", code: "Enter" });
+        await waitFor(() => {
+            expect(screen.getByText("Yes, the history is stored.")).toBeInTheDocument();  //waits and checks if the expected response is received and correct
+        });
     });
+
+
 });
