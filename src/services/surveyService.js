@@ -20,6 +20,12 @@ export const handleNext = (pageNum, responses, setResponses, setCurrentPage, nav
     setCurrentPage(pageNum + 1);
 };
 
+// Calculates the average of all responses
+export const happinessIndex = (responses) => {
+    const total = Object.values(responses).reduce((sum, value) => sum + value, 0);
+    return total / questions.length;
+};
+
 // Moves us back one page when the "Back" button is clicked
 export const handleBack = (currentPage, setCurrentPage) => {
     setCurrentPage(currentPage - 1);
