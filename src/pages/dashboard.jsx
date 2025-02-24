@@ -46,13 +46,14 @@ export default function Dashboard() {
               bgColor="dashboard-card-purple"
             /> */}
             
-            <DashboardCard
+            <DashboardCard  
               title="Mindful Check-in"
               description="Complete your daily check-in now"
               icon={<Brain className="w-16 h-16 text-gray-600" />}
               bgColor="dashboard-card"
               image= {mindfulPic}
             />
+
             <DashboardCard
               title="Wellness bot"
               description="Meet your personal wellness bot!"
@@ -75,7 +76,7 @@ function Badge({ icon, color }) {  //creates construcoor for badges with icon an
   );
 }
 
-function DashboardCard({ title, description, image, bgColor }) {   //creates constructor for dashboard cards with title, description, icon and background color
+function DashboardCard({ title, description, image, bgColor, toDo }) {   //creates constructor for dashboard cards with title, description, icon and background color
   return (
     <div className={`dashboard-card ${bgColor}`}>
       <div className="dashboard-card-header">
